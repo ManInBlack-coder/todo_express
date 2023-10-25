@@ -21,10 +21,10 @@
                                
                                
                                 <div class="row">
-                                    <form class="col s12">
+                                    <form class="col s12" method="post" action="/">
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Task" id="task" type="text">
+                                                <input placeholder="Task" id="task" type="text" name="task">
                                                 <label for="task">Insert Task</label>
 
                                             </div>
@@ -41,10 +41,10 @@
                                 <% tasks.forEach((task) =>{ %>
                                     <li class="collection-item"><%= task %></li>
                                 <% }) %>
-                                    <li class="collection-item">Study HTML</li>
+                                  <!--  <li class="collection-item">Study HTML</li>
                                     <li class="collection-item">Study CSS</li>
                                     <li class="collection-item">Study JS</li>
-                                    <li class="collection-item">Study OOP</li>
+                                    <li class="collection-item">Study OOP</li> -->
                                 </ul>
                             </div>
 
