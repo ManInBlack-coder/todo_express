@@ -39,7 +39,8 @@ const writeFile = (filename,data) => {
 app.get('/', async (req,res) =>{
     const tasks = await readFile('../tasks.json')
     console.log(tasks)
-    res.render('index.ejs', {tasks} )
+    res.render('index.ejs', {tasks: tasks,
+    error:null},  )
 })
 
 
@@ -48,6 +49,19 @@ app.use(express.urlencoded({extended: true}));
 
 
 app.post('/', (req,res) => {
+    //control data from form
+    let error = null
+    if(req.body.task.trim().length == 0){
+        error='please insert correct task data'
+        readFile('../tasks.json')
+        .then(tasks =>{
+            res.render('index', {
+                tasks: tasks,
+                error: error
+            } )
+        } )
+    } else {
+
     readFile('../tasks.json')
         .then(tasks => {
             
@@ -82,7 +96,7 @@ app.post('/', (req,res) => {
                 res.redirect('/')
             }) 
         }) 
-    
+    }  
 })
 
 
