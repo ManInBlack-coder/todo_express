@@ -37,7 +37,7 @@ const writeFile = (filename,data) => {
 
 
 app.get('/', async (req,res) =>{
-    const tasks = await readFile('../tasks.json')
+    const tasks = await readFile('./tasks.json')
     console.log(tasks)
     res.render('index.ejs', {tasks: tasks,
     error:null},  )
@@ -53,7 +53,7 @@ app.post('/', (req,res) => {
     let error = null
     if(req.body.task.trim().length == 0){
         error='please insert correct task data'
-        readFile('../tasks.json')
+        readFile('./tasks.json')
         .then(tasks =>{
             res.render('index', {
                 tasks: tasks,
@@ -62,7 +62,7 @@ app.post('/', (req,res) => {
         } )
     } else {
 
-    readFile('../tasks.json')
+    readFile('./tasks.json')
         .then(tasks => {
             
             let index
@@ -86,7 +86,7 @@ app.post('/', (req,res) => {
             writeFile('tasks.json', data)
             //-------------------------
             console.log(data)
-            fs.writeFile('../tasks.json', data, 'utf8', (err,data) => {
+            fs.writeFile('./tasks.json', data, 'utf8', (err,data) => {
                 if(err){
                     console.error(err)
                     return;
@@ -102,7 +102,7 @@ app.post('/', (req,res) => {
 
 app.get('/delete-task/:taskId', (req,res) => {
     let deletedTaskId = parseInt(req.params.taskId)
-    readFile('../tasks.json')
+    readFile('./tasks.json')
     .then(tasks =>{
         tasks.forEach((task, index) =>{
             if(task.id === deletedTaskId){
@@ -114,7 +114,7 @@ app.get('/delete-task/:taskId', (req,res) => {
         // Kirjutasin 5. ülesande 8.lehe koodijupi
         writeFile('tasks.json', data)
         //-------------------------
-        fs.writeFile('../tasks.json', data, 'utf-8', err => {
+        fs.writeFile('./tasks.json', data, 'utf-8', err => {
             if (err){
                 console.error(err);
                 return;
@@ -126,7 +126,7 @@ app.get('/delete-task/:taskId', (req,res) => {
 } )
 
 app.post('/clear-tasks', (req,res) =>{
-    fs.writeFile('../tasks.json',JSON.stringify([],null,2),'utf-8',(err) => {
+    fs.writeFile('./tasks.json',JSON.stringify([],null,2),'utf-8',(err) => {
         if (err){
             console.log(err);
             return;
@@ -135,7 +135,7 @@ app.post('/clear-tasks', (req,res) =>{
     });
 });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log('Example app is started at http://localhost:3001')
 
 })
