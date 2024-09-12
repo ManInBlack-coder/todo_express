@@ -34,6 +34,9 @@ export default {
     "spec/helpers/**/*.js"  // Any helper files (optional)
   ],
   "reporters"; [
+  
+  
+  
     "html",
     "batchReporter"
   ]
