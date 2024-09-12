@@ -52,8 +52,8 @@
                                     <a href="delete-task/<%= task.id %>" class="secondary/content"> <i class="material-symbols-outlined">close</i></a>
                                     </li>
                                 <% }) %>
-                                  <form style="padding: 10px;" action="/clear-tasks" method="POST">
-                                    <input class="btn" type="submit" value="CLEAR ALL">
+                                  <form style="padding: 10px;" action="/clear-tasks" method="POST" id="clearAll">
+                                    <input class="btn" type="submit" value="CLEAR ALL" id='clear_all'>
                                 </ul>
                             </div>
 
