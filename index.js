@@ -60,7 +60,11 @@ app.post('/', (req,res) => {
                 error: error
             } )
         } )
-    } else {
+    } 
+    
+    
+    
+    else {
 
     readFile('./tasks.json')
         .then(tasks => {
@@ -86,6 +90,8 @@ app.post('/', (req,res) => {
             writeFile('tasks.json', data)
             //-------------------------
             console.log(data)
+            
+            
             fs.writeFile('./tasks.json', data, 'utf8', (err,data) => {
                 if(err){
                     console.error(err)
@@ -135,9 +141,29 @@ app.post('/clear-tasks', (req,res) =>{
     });
 });
 
-app.listen(3001, () => {
-    console.log('Example app is started at http://localhost:3001')
+// -------------------------
 
+
+// 3. testi jaoks tegin selle.
+// const startServer = () => {
+
+//     app.listen(3000, () => {
+//         console.log('Example app is started at http://localhost:3000')
+    
+//     })
+// }
+
+// module.exports = {app,startServer};
+
+
+// -------------------------
+
+app.listen(3001,() => {
+    console.log('Example app is started at http://localhost:3000')
 })
+
+
+
+
 // J'tka kuuendal lehel
 
