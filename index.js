@@ -24,7 +24,7 @@ const readFile = (filename) =>{
 
 const writeFile = (filename,data) => {
     return new Promise((resolve, reject) => {
-        //get data from file
+        //get data from file 
         fs.writeFile(filename, data ,'utf-8', err =>{
             if (err) {
                 console.error(err);

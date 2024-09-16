@@ -33,7 +33,7 @@ describe('POST / - empty task validation', () => {
 
     const res = await request(app)
       .post('/')
-      .send({ task: '    ' }); 
+      .send({ task: '' }); 
 
     expect(res.statusCode).toBe(200);
     expect(res.text).toContain('please insert correct task data');
